@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import AddDrinks from './add-drinks'
 import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3456/'
@@ -18,13 +19,15 @@ class Drinks extends Component{
 
     componentDidMount(){
         this.getDrinks()
-
     }
 
 
     render(){
         return(
-          <p>{this.state.drinks.length}</p>
+            [
+            <div>{this.state.drinks.map(drinks => drinks.name)}</div>,
+            <AddDrinks />
+        ]
         )
     }
 }
