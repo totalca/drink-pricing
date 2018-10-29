@@ -25,7 +25,7 @@ class Drinks extends Component{
     render(){
         return(
             [
-            <div>{this.state.drinks.map(drinks => drinks.name)}</div>,
+            <div>{this.state.drinks.map(drinks => <p>{drinks.name}</p>)}</div>,
             <AddDrinks />
         ]
         )
