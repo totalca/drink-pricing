@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import AddDrinks from './add-drinks'
 import axios from 'axios'
-
-const BASE_URL = 'http://localhost:3456/'
+import {BASE_URL} from './constant'
+//const BASE_URL = 'http://localhost:3456/'
 
 class Drinks extends Component{
 
@@ -21,13 +21,29 @@ class Drinks extends Component{
         this.getDrinks()
     }
 
+    addDrinksToState = (something) => {
+        console.log(`React is Ultra ${something}`)
+        this.setState({
+            drinks: [...this.state.drinks, {
+                name: something,
+                id: ++this.newMethod().drinks.length
+            }]
+        })
+    }
+
+    newMethod() {
+        return this.state;
+    }
 
     render(){
         return(
-            [
-            <div>{this.state.drinks.map(drinks => <p>{drinks.name}</p>)}</div>,
-            <AddDrinks />
-        ]
+            <div>
+                <div>{this.state.drinks.map((drinks, key) => <p key={key}>{drinks.name}
+                </p>)}
+                </div>
+                <AddDrinks property=
+                {this.addDrinksToState} />
+            </div>
         )
     }
 }
