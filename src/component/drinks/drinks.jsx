@@ -35,14 +35,22 @@ class Drinks extends Component{
         return this.state;
     }
 
+    renderDrinks = () => {
+        return this
+            .state
+            .drinks
+            .map((drinks, key) => 
+                <p key={key}>{drinks.name}</p>
+            )
+    }
+
+
     render(){
         return(
             <div>
-                <div>{this.state.drinks.map((drinks, key) => <p key={key}>{drinks.name}
-                </p>)}
-                </div>
-                <AddDrinks property=
-                {this.addDrinksToState} />
+                <div>{this.renderDrinks()}</div>
+                <AddDrinks 
+                    anyname={this.addDrinksToState} />
             </div>
         )
     }
