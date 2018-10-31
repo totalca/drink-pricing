@@ -32,10 +32,6 @@ class Drinks extends Component{
         console.log(this.state.drinks)
     }
 
-    removeDrinksFromState = id => {
-        console.log(`Drink with ${id} has been deleted`)
-    }
-
     renderDrinks = () => {
         return this
             .state
@@ -52,10 +48,12 @@ class Drinks extends Component{
     }
 
     async deleteDrinks(id) {
-        console.log(id);
+        console.log(`Drink wnumber ${id} has been deleted`)
         await axios.delete(`${BASE_URL}drinks/${id}`, {
             'Content-Type': 'application/json',
             method: 'DELETE'
+        }).then(result => {
+            console.log(result)
         })
     }
 
