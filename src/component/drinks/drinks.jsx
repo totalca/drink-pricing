@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import AddDrinks from './add-drinks'
 import axios from 'axios'
 import {BASE_URL} from './constant'
-//const BASE_URL = 'http://localhost:3456/'
+import './drinks.css'
 
 class Drinks extends Component{
 
@@ -21,18 +21,19 @@ class Drinks extends Component{
         this.getDrinks()
     }
 
-    addDrinksToState = (something) => {
+    addDrinksToState = something => {
         console.log(`React is Ultra ${something}`)
         this.setState({
             drinks: [...this.state.drinks, {
                 name: something,
-                id: ++this.newMethod().drinks.length
+                id: this.state.drinks.length +1
             }]
         })
+        console.log(this.state.drinks)
     }
 
-    newMethod() {
-        return this.state;
+    removeDrinksFromState = id => {
+        console.log(`Drink with ${id} has been deleted`)
     }
 
     renderDrinks = () => {
@@ -40,10 +41,23 @@ class Drinks extends Component{
             .state
             .drinks
             .map((drinks, key) => 
-                <p key={key}>{drinks.name}</p>
+                <p key={key} className='drink__item'>
+                    <span>{drinks.name}</span>
+                    <span
+                        onClick={() => this.deleteDrinks(drinks.id)}>
+                        &times;
+                    </span>
+                </p>
             )
     }
 
+    async deleteDrinks(id) {
+        console.log(id);
+        await axios.delete(`${BASE_URL}drinks/${id}`, {
+            'Content-Type': 'application/json',
+            method: 'DELETE'
+        })
+    }
 
     render(){
         return(

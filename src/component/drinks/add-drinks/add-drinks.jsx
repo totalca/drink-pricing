@@ -21,17 +21,26 @@ class AddDrinks extends Component {
                         'Content-Type': 'application/json',
                     }
                 )
-            this.props.property(this.somethingElse.value);
-        }catch (e) {
+            this.props.anyname(this.somethingElse.value);
+            this.somethingElse.value = '';
+            this.somethingElse.focus();
+        } catch (e) {
         }
     }
 
+    handleEnter = (event) => {
+        if(event.keyCode === 13) {
+            this.pushDrinks();
+        }
+    }
 
     render(){
             return(
                  <p>
                      <input 
-                        ref={qwe => this.somethingElse = qwe}/>
+                        ref={qwe => this.somethingElse = qwe}
+                        onKeyDown={this.handleEnter}
+                        />
                      <button 
                         onClick={this.pushDrinks}>
                         React is Awesome

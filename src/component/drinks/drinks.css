@@ -1,0 +1,10 @@
+.drink__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.drink__item>:nth-child(2) {
+    cursor: pointer;
+    font-size: 1.3rem;
+}
