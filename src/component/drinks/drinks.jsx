@@ -39,10 +39,11 @@ class Drinks extends Component{
             .map((drinks, key) => 
                 <p key={key} className='drink__item'>
                     <span>{drinks.name}</span>
-                    <span
+                    <button
                         onClick={() => this.deleteDrinks(drinks.id)}>
                         &times;
-                    </span>
+                    </button>
+                  <button>Edit</button>
                 </p>
             )
     }

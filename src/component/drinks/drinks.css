@@ -4,7 +4,23 @@
     padding: 0 1rem;
 }
 
+.drink__item>:nth-child(1) {
+    flex-grow: 1;
+}
+
 .drink__item>:nth-child(2) {
     cursor: pointer;
+    margin-right: -1px;
     font-size: 1.3rem;
+    border-width: 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.drink__item>:nth-child(3) {
+    font-size: 1.1rem;
+    border-width: 1px;
+    margin-left: 2px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
