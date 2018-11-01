@@ -106,6 +106,9 @@ class Drinks extends Component{
                             drinksObject
                         )
             });
+            this.setState({
+                current: null
+            })
         })
         // if(confirm('any')) {
         // }

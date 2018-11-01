@@ -43,7 +43,7 @@ class AddDrinks extends Component {
                         />
                      <button 
                         onClick={this.pushDrinks}>
-                        React is Awesome
+                        Add drink
                      </button>
                  </p>
 
