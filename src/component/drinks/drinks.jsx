@@ -47,6 +47,12 @@ class Drinks extends Component{
             this.setState({
                 current: null
             })
+        } else if (key === 13) {
+            console.log(event.target.value)
+            this.saveDrinks({
+                id: this.state.current,
+                name: event.target.value
+            })
         }
         // if Enter is pressed (13)
     }
@@ -82,6 +88,29 @@ class Drinks extends Component{
             )
     }
 
+    async saveDrinks(drinksObject) {
+        console.log(`Drink with id "${drinksObject.id}" has been saved`)
+        console.log(drinksObject.id)
+        await axios.put(`${BASE_URL}drinks/${drinksObject.id}`, {
+            //'Content-Type': 'application/json',
+            ...drinksObject
+            //method: 'PUT'
+        }).then(result => {
+            //remove the drink from state
+            this.setState({
+                drinks: this.state.drinks
+                          .map(drinks => drinks.id !== drinksObject.id ? 
+                            // if it's not the id, return the same object
+                              drinks :
+                            // if it's the one to be updated, return the new object with the 
+                            drinksObject
+                        )
+            });
+        })
+        // if(confirm('any')) {
+        // }
+    }
+
     async deleteDrinks(id) {
         console.log(`Drink with id "${id}" has been deleted`)
         await axios.delete(`${BASE_URL}drinks/${id}`, {
@@ -94,8 +123,6 @@ class Drinks extends Component{
                 .filter(drinks => drinks.id !== id)
             });
         })
-        // if(confirm('any')) {
-        // }
     }
     
     render(){
