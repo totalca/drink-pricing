@@ -8,7 +8,8 @@ class Drinks extends Component{
 
 
     state = {
-        drinks:[]
+        drinks:[],
+        current: null
     }
 
     async getDrinks() {
@@ -32,18 +33,51 @@ class Drinks extends Component{
         console.log(this.state.drinks)
     }
 
+    setCurrentDrinks = id => {
+        console.log(id);
+        this.setState({
+            current: id
+        })
+    }
+
+    handleEditDrinks = event => {
+        const { keyCode: key } = event;
+        // if Escape is pressed (27)
+        if (key === 27) {
+            this.setState({
+                current: null
+            })
+        }
+        // if Enter is pressed (13)
+    }
+
     renderDrinks = () => {
         return this
             .state
             .drinks
             .map((drinks, key) => 
                 <p key={key} className='drink__item'>
-                    <span>{drinks.name}</span>
-                    <button
+                    <span>
+                        {
+                            this.state.current !== drinks.id && 
+                            <span>{drinks.name}</span>
+                        }
+                        {
+                            this.state.current === drinks.id &&
+                            <input 
+                                type="text" 
+                                defaultValue={drinks.name} 
+                                onKeyDown={this.handleEditDrinks}
+                                autoFocus />
+                            }
+                            </span>
+                  <button
                         onClick={() => this.deleteDrinks(drinks.id)}>
                         &times;
-                    </button>
-                  <button>Edit</button>
+                  </button>
+                  <button
+                        onClick={() => this.setCurrentDrinks(drinks.id)}>
+                  Edit</button>
                 </p>
             )
     }
@@ -57,11 +91,13 @@ class Drinks extends Component{
             //remove the drink from state
             this.setState({
                 drinks: this.state.drinks
-                          .filter(drinks => drinks.id !== id)
+                .filter(drinks => drinks.id !== id)
             });
         })
+        // if(confirm('any')) {
+        // }
     }
-
+    
     render(){
         return(
             <div>
