@@ -15,14 +15,16 @@
     {
       "id": 5,
       "name": "fds897879"
-    },
+    }
+  ],
+  "ingredient": [
     {
-      "id": 7,
-      "name": "abc123545454"
-    },
-    {
-      "id": 8,
-      "name": "88888888888888"
+      "id": 1,
+      "name": "Vodka",
+      "unit": "ml",
+      "price": 56,
+      "currency": "£",
+      "quantity": 700
     }
   ]
 }
