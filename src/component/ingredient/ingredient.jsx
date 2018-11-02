@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BASE_URL } from './constant'
+import './ingredient.css'
 
 class Ingredient extends Component {
     state = {
@@ -32,7 +33,7 @@ class Ingredient extends Component {
     }
     render() {
         return (
-            <table>
+            <table className="ingredient__full-table">
                 <thead>
                     <tr>
                         <td>ID</td>

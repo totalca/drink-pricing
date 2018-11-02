@@ -1,0 +1,8 @@
+ingredient__full-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+ingredient__full-table thead td {
+  background-color: lightblue;
+}
