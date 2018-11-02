@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './ingredient.css';
 import axios from 'axios';
 import { BASE_URL } from './constant'
-import './ingredient.css'
 
 class Ingredient extends Component {
     state = {
