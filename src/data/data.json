@@ -13,15 +13,15 @@
       "id": 3
     },
     {
-      "id": 5,
-      "name": "fds897879"
+      "name": "dsdsffds",
+      "id": 6
     }
   ],
   "ingredient": [
     {
       "id": 1,
       "name": "Vodka",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -29,7 +29,7 @@
     {
       "id": 2,
       "name": "Vodka",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -37,7 +37,7 @@
     {
       "id": 3,
       "name": "Vodka",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -45,7 +45,7 @@
     {
       "id": 4,
       "name": "Vodka",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -53,15 +53,7 @@
     {
       "id": 5,
       "name": "Vodka",
-      "unit": "ml",
-      "price": 56,
-      "currency": "£",
-      "quantity": 700
-    },
-    {
-      "id": 6,
-      "name": "Vodka",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
